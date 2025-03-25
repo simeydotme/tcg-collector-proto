@@ -2,6 +2,7 @@
   import { getContext, hasContext } from "svelte";
   import Variant from "./Variant.svelte";
   import { observe } from "./observer.action";
+  import { variantFilter } from "./variantFilter.js";
 
   let zenMode = getContext("zenMode");
   let showMore = $state(false);
@@ -22,37 +23,9 @@
   let tag = $derived(zenMode.active ? "div" : "a");
   let number = $derived((card.number + "").padStart(3, "0"));
   let shownVariants = $derived.by(() => {
+    const maxLength = 4;
     if (showMore) return card.variants;
-    // First count positive quantity items
-    const positiveCount = card.variants.reduce(
-      (count, item) => count + (item.quantity > 0 ? 1 : 0),
-      0
-    );
-
-    // If more than 5 positive quantity items, return only those
-    if (positiveCount > 5) {
-      return card.variants.filter((item) => item.quantity > 0);
-    }
-
-    // Otherwise, we'll do a single pass with a counter
-    const result = [];
-    let remainingSlots = 5 - positiveCount; // slots for zero-quantity items
-
-    for (const item of card.variants) {
-      if (item.quantity > 0) {
-        result.push(item);
-      } else if (remainingSlots > 0) {
-        result.push(item);
-        remainingSlots--;
-      }
-    }
-
-    return result;
-
-    // let v = card.variants.filter((v, i) => {
-    //   return showMore || v.quantity > 0 || i <= 5;
-    // });
-    // return v;
+    return variantFilter(card.variants, 4);
   });
   // let quantity = 2;
 

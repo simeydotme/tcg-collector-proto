@@ -107,7 +107,7 @@
 <!-- 🟢 select-none prevents any accidental copy/paste occurring -->
 
 <div
-  class="@max-sm:text-sm ml-2 pl-3 p-1 w-[calc(100%-1rem)] min-h-10 col-[1/-1] flex items-center gap-2 rounded-xl select-none [&>*]:select-none shadow-lg shadow-slate-700/25 backdrop-blur-xl backdrop-brightness-125 backdrop-saturate-120 border-1 border-t-white/90 border-slate-800/5 border-b-slate-600/15 transition-all transform-gpu bg-clip-padding bg-gradient-to-r to-transparent to-40% {hasQuantity
+  class="@max-sm:text-sm ml-2 pl-3 p-1 w-[calc(100%-1rem)] min-h-8 col-[1/-1] flex items-center gap-2 rounded-xl select-none [&>*]:select-none shadow-lg shadow-slate-700/25 backdrop-blur-xl backdrop-brightness-125 backdrop-saturate-120 border-1 border-t-white/90 border-slate-800/5 border-b-slate-600/15 transition-all transform-gpu bg-clip-padding bg-gradient-to-r to-transparent to-40% {hasQuantity
     ? 'bg-slate-100/60'
     : 'bg-slate-200/30'}"
   class:from-[#fa703588]={variant.type === "normal" && variant.quantity > 0}
@@ -149,7 +149,7 @@
     onfocus={(event) => {
       if (variant.quantity === 0) event.target.select();
     }}
-    class="ml-auto max-w-16 @max-sm:max-w-12 text-right rounded-md bg-gray-50 border-none outline-none ring-1 ring-slate-500/40 focus-visible:ring-violet-400 focus-visible:ring-2 transition-all inset-shadow-xs"
+    class="ml-auto !h-9 max-w-16 @max-sm:max-w-12 text-right rounded-md bg-gray-50 border-none outline-none ring-1 ring-slate-500/20 focus-visible:ring-violet-400 focus-visible:ring-2 transition-all inset-shadow-xs"
   />
   <!-- 
     🟢 input auto-selects the '0' value to make new entry easier
@@ -161,7 +161,7 @@
     onpointerup={handleMinusUp}
     onpointercancel={clearTimers}
     onpointerleave={clearTimers}
-    class="size-10 bg-slate-300 rounded-lg border-1 border-slate-400 shrink-0 before:-inset-2.5 before:absolute hover:before:bg-red-300/20 focus:ring-violet-400 transition-all focus:ring-2 active:ring-violet-400 active:ring-2"
+    class="size-9 bg-transparent rounded-lg border-none shrink-0 before:-inset-3 before:-right-1 before:absolute hover:before:bg-red-300/20 focus:ring-violet-400 transition-all focus:ring-2 active:ring-violet-400 active:ring-2"
     ><span aria-hidden="true" class="fa-solid fa-minus"></span></button
   >
   <!--
@@ -174,7 +174,7 @@
     onpointerup={handlePlusUp}
     onpointercancel={clearTimers}
     onpointerleave={clearTimers}
-    class="size-10 bg-slate-300 rounded-lg border-1 border-slate-400 shrink-0 before:-inset-2.5 before:absolute hover:before:bg-red-300/20 focus:ring-violet-400 transition-all focus:ring-2 active:ring-violet-400 active:ring-2"
+    class="size-9 bg-transparent rounded-lg border-none shrink-0 before:-inset-3 before:-left-1 before:absolute hover:before:bg-red-300/20 focus:ring-violet-400 transition-all focus:ring-2 active:ring-violet-400 active:ring-2"
     ><span aria-hidden="true" class="fa-solid fa-plus"></span></button
   >
 </div>
