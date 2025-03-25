@@ -2,10 +2,8 @@
   import { getContext, hasContext } from "svelte";
   import Variant from "./Variant.svelte";
   import { observe } from "./observer.action";
-  import { variantFilter } from "./variantFilter.js";
 
   let zenMode = getContext("zenMode");
-  let showMore = $state(false);
 
   let {
     card = $bindable({
@@ -22,13 +20,6 @@
 
   let tag = $derived(zenMode.active ? "div" : "a");
   let number = $derived((card.number + "").padStart(3, "0"));
-  let shownVariants = $derived.by(() => {
-    const maxLength = 4;
-    if (showMore) return card.variants;
-    return variantFilter(card.variants, 4);
-  });
-  // let quantity = 2;
-
   let quantity = $derived.by(() => {
     return card.variants.reduce((p, c, i) => (p ?? 0) + (c?.quantity ?? 0), 0);
   });
@@ -54,7 +45,7 @@
     this={tag}
     href={zenMode.active ? null : card.url}
     title="{card.name} ({set.name} {number}/{set.count})"
-    class="card-image-grid-item-link grid grid-cols-1 grid-rows-[0.3fr_0.7fr]"
+    class="card-image-grid-item-link grid grid-cols-1 grid-rows-1"
   >
     <div class="card-image-grid-item-card-title hidden">
       {card.name} ({set.name}
@@ -71,7 +62,6 @@
       height="447"
       sizes="(max-width: 320px) 100vw, 320px"
       class="card-image-grid-item-image row-[1/-1] col-[1/-1] transition-opacity"
-      class:pr-12={zenMode.active}
       class:opacity-50={quantity < 1}
       class:pointer-events-none={zenMode.active}
     />
@@ -88,24 +78,17 @@
 
     {#if zenMode.active}
       <div
-        class="row-start-2 row-span-1 col-[1/-1] self-end max-w-full aspect-[4/3] flex flex-col justify-end transform-gpu"
+        class="row-[1/-1] col-[1/-1] self-end max-w-full aspect-[4/3] flex flex-col justify-end transform-gpu pb-6 bg-gradient-to-b from-transparent to-80% to-slate-800/50 rounded-lg z-1"
       >
-        <div class="pb-8 overflow-auto h-full">
+        <div class="variant-scroller py-4 overflow-auto h-full">
           <div class="flex flex-col justify-end gap-2 min-h-full">
-            {#each shownVariants as variant, i}
+            {#each card.variants as variant, i}
               <Variant
                 id={card.id}
-                bind:variant={shownVariants[i]}
+                bind:variant={card.variants[i]}
                 hasQuantity={quantity > 0}
               />
             {/each}
-            {#if card.variants.length > 5}
-              <button
-                onclick={() => (showMore = !showMore)}
-                class="button button-primary w-auto self-end mr-2 shadow-lg shadow-slate-700/25"
-                >show {showMore ? "less" : "all variants"}</button
-              >
-            {/if}
           </div>
         </div>
       </div>
@@ -113,18 +96,15 @@
 
     <div class="card-image-grid-item-info-overlay-text">
       <span class="card-image-grid-item-info-overlay-text-part">
-        {number}/{set.count}</span
+        {number}/{card.set.count}</span
       >
     </div>
 
-    <div
-      class="card-image-grid-item-info-overlay-expansion-symbol-container"
-      class:right-12={zenMode.active}
-    >
+    <div class="card-image-grid-item-info-overlay-expansion-symbol-container">
       <img
-        src={set.symbol}
+        src={card.set.symbol}
         loading="eager"
-        alt={set.name}
+        alt={card.set.name}
         width="25"
         height="13"
         sizes="(max-width: 25px) 100vw, 25px"
@@ -134,22 +114,16 @@
   </svelte:element>
 
   <div class="card-image-controls">
-    <div
-      class="card-image-controls-item"
-      class:w-[calc(100%-3rem)]={zenMode.active}
-    >
+    <div class="card-image-controls-item">
       <span class="card-image-controls-item-rarity">
         <img
-          src="https://static.tcgcollector.com/content/images/8a/1c/2a/8a1c2ab1fde8fd743c2e5803829f112cdf3442ad808ed361ed6665ed03759915.svg"
-          srcset="
-            https://static.tcgcollector.com/content/images/8a/1c/2a/8a1c2ab1fde8fd743c2e5803829f112cdf3442ad808ed361ed6665ed03759915.svg 13w
-          "
+          src={card.rarity.symbol}
           loading="eager"
-          alt="Common"
+          alt={card.rarity.name}
           width="13"
           height="13"
           sizes="(max-width: 13px) 100vw, 13px"
-          title="Common"
+          title={card.rarity.name}
           class="card-rarity-symbol"
         />
       </span>
@@ -165,6 +139,48 @@
       >
         $0.05
       </button>
+
+      <span
+        class="card-collection-card-controls flex items-center mr-3"
+        class:card-variants-completed-icon-shown={card.variants.every(
+          (v) => v.quantity > 0
+        )}
+      >
+        <span
+          aria-label="My collection entries"
+          class:hidden={!zenMode.active}
+          class="card-collection-card-controls-indicators flex items-center pointer-events-none"
+        >
+          <span
+            aria-hidden="true"
+            class="card-collection-card-indicator card-collection-card-indicator-standard-set card-collection-card-indicator-with-dot"
+            class:active={card.variants.filter(
+              (v) => v.type === "normal" && v.quantity > 0
+            ).length}
+          >
+          </span>
+          {#if card.variants.filter((v) => v.type === "parallel").length}
+            <span
+              aria-hidden="true"
+              class:active={card.variants.filter(
+                (v) => v.type === "parallel" && v.quantity > 0
+              ).length}
+              class="card-collection-card-indicator card-collection-card-indicator-parallel-set"
+            >
+            </span>
+          {/if}
+          {#if card.variants.filter((v) => v.type === "other").length}
+            <span
+              aria-hidden="true"
+              class:active={card.variants.filter(
+                (v) => v.type === "other" && v.quantity > 0
+              ).length}
+              class="card-collection-card-indicator card-collection-card-indicator-other-variants"
+            >
+            </span>
+          {/if}
+        </span></span
+      >
 
       <button
         type="button"
@@ -247,8 +263,13 @@
 
 <style>
   @layer components {
-    .overflow-auto {
+    .variant-scroller {
       scrollbar-width: thin;
+    }
+    @media screen and (max-width: 460px) {
+      .variant-scroller {
+        scrollbar-width: none;
+      }
     }
   }
 </style>

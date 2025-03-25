@@ -107,8 +107,8 @@
 <!-- 🟢 select-none prevents any accidental copy/paste occurring -->
 
 <div
-  class="@max-sm:text-sm ml-2 pl-3 p-1 w-[calc(100%-1rem)] min-h-8 col-[1/-1] flex items-center gap-2 rounded-xl select-none [&>*]:select-none shadow-lg shadow-slate-700/25 backdrop-blur-xl backdrop-brightness-125 backdrop-saturate-120 border-1 border-t-white/90 border-slate-800/5 border-b-slate-600/15 transition-all transform-gpu bg-clip-padding bg-gradient-to-r to-transparent to-40% {hasQuantity
-    ? 'bg-slate-100/60'
+  class="@max-sm:text-sm ml-2 pl-3 p-1 w-[calc(100%-1rem)] min-h-8 col-[1/-1] flex items-center gap-2 rounded-xl select-none [&>*]:select-none shadow-lg shadow-slate-700/25 backdrop-blur-xl backdrop-brightness-125 border-1 border-t-white/90 border-slate-800/5 border-b-slate-600/15 transition-all transform-gpu bg-clip-padding bg-gradient-to-r to-transparent to-40% {hasQuantity
+    ? 'bg-slate-100/50'
     : 'bg-slate-200/30'}"
   class:from-[#fa703588]={variant.type === "normal" && variant.quantity > 0}
   class:from-[#5bc0de88]={variant.type === "parallel" && variant.quantity > 0}
