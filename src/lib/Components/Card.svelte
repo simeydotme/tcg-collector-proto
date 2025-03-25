@@ -4,6 +4,7 @@
   import { observe } from "./observer.action";
 
   let zenMode = getContext("zenMode");
+  let showMore = $state(false);
 
   let {
     card = $bindable({
@@ -20,6 +21,39 @@
 
   let tag = $derived(zenMode.active ? "div" : "a");
   let number = $derived((card.number + "").padStart(3, "0"));
+  let shownVariants = $derived.by(() => {
+    if (showMore) return card.variants;
+    // First count positive quantity items
+    const positiveCount = card.variants.reduce(
+      (count, item) => count + (item.quantity > 0 ? 1 : 0),
+      0
+    );
+
+    // If more than 5 positive quantity items, return only those
+    if (positiveCount > 5) {
+      return card.variants.filter((item) => item.quantity > 0);
+    }
+
+    // Otherwise, we'll do a single pass with a counter
+    const result = [];
+    let remainingSlots = 5 - positiveCount; // slots for zero-quantity items
+
+    for (const item of card.variants) {
+      if (item.quantity > 0) {
+        result.push(item);
+      } else if (remainingSlots > 0) {
+        result.push(item);
+        remainingSlots--;
+      }
+    }
+
+    return result;
+
+    // let v = card.variants.filter((v, i) => {
+    //   return showMore || v.quantity > 0 || i <= 5;
+    // });
+    // return v;
+  });
   // let quantity = 2;
 
   let quantity = $derived.by(() => {
@@ -85,13 +119,20 @@
       >
         <div class="pb-8 overflow-auto h-full">
           <div class="flex flex-col justify-end gap-2 min-h-full">
-            {#each card.variants as variant, i}
+            {#each shownVariants as variant, i}
               <Variant
-                bind:variant={card.variants[i]}
                 id={card.id}
+                bind:variant={shownVariants[i]}
                 hasQuantity={quantity > 0}
               />
             {/each}
+            {#if card.variants.length > 5}
+              <button
+                onclick={() => (showMore = !showMore)}
+                class="button button-primary w-auto self-end mr-2 shadow-lg shadow-slate-700/25"
+                >show {showMore ? "less" : "all variants"}</button
+              >
+            {/if}
           </div>
         </div>
       </div>

@@ -112,6 +112,7 @@
     : 'bg-slate-200/30'}"
   class:from-[#fa703588]={variant.type === "normal" && variant.quantity > 0}
   class:from-[#5bc0de88]={variant.type === "parallel" && variant.quantity > 0}
+  class:from-[#e663ca88]={variant.type === "other" && variant.quantity > 0}
   title="{variant.name}: {variant.quantity}"
 >
   <!-- 
@@ -126,12 +127,14 @@
       "normal"}
     class:card-collection-card-indicator-parallel-set={variant.type ===
       "parallel"}
+    class:card-collection-card-indicator-other-variants={variant.type ===
+      "other"}
     class="card-collection-card-indicator card-collection-card-indicator-with-dot shrink-0 transition-colors"
   >
   </span>
   <label
     for="variant-{id}-{variant.name}"
-    class="m-0 w-full h-full leading-3.5 drop-shadow-[0_0_2px_white,0_0_9px_white]"
+    class="m-0 w-full h-full leading-3.5 drop-shadow-[0_0_2px_white,0_0_9px_white] line-clamp-3 overflow-visible"
   >
     {variant.name}
   </label>

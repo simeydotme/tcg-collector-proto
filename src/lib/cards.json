@@ -171,37 +171,37 @@
       {
         "name": "Cosmos Holo",
         "quantity": 0,
-        "type": "parallel"
+        "type": "other"
       },
       {
         "name": "Galaxy Holo",
         "quantity": 0,
-        "type": "parallel"
+        "type": "other"
       },
       {
         "name": "Cracked Ice Holo",
         "quantity": 0,
-        "type": "parallel"
+        "type": "other"
       },
       {
         "name": "Reverse Holo",
         "quantity": 0,
-        "type": "parallel"
+        "type": "other"
       },
       {
         "name": "Play! Pokémon Price Pack, Cosmos Holo",
         "quantity": 0,
-        "type": "parallel"
+        "type": "other"
       },
       {
         "name": "Play! Pokémon Price Pack, Non-Holo",
         "quantity": 0,
-        "type": "parallel"
+        "type": "other"
       },
       {
         "name": "Professor Program",
         "quantity": 0,
-        "type": "parallel"
+        "type": "other"
       }
     ],
     "rarity": {
@@ -5635,6 +5635,255 @@
     "rarity": {
       "symbol": "https://static.tcgcollector.com/content/images/a2/b9/9c/a2b99c0a93f3524d53e68b9287184dda2da352507baa62ad3b25814c8a1b9760.svg",
       "name": "Hyper Rare"
+    }
+  },
+
+  {
+    "id": 37204,
+    "url": "/cards/37204/professors-research-brilliant-stars-147-172",
+    "image": "https://static.tcgcollector.com/content/images/cc/c1/03/ccc103532ffeda89aa7df91be7c7154efb69cbc4f50c8191b26897bd73cd3adb.jpg",
+    "name": "Professor's Research",
+    "number": 147,
+    "set": {
+      "count": 172,
+      "symbol": "https://static.tcgcollector.com/content/images/0c/46/74/0c467460faa2a9df9c788878676c080073a5066e32ab88670d8490eaf0c68070.png",
+      "name": "Brilliant Stars"
+    },
+    "variants": [
+      {
+        "name": "Normal Holo",
+        "quantity": 0,
+        "type": "normal"
+      },
+      {
+        "name": "Reverse Holo",
+        "quantity": 0,
+        "type": "parallel"
+      },
+      {
+        "name": "Non-holo",
+        "quantity": 1,
+        "type": "parallel"
+      },
+      {
+        "name": "Play! Pokémon Prize Pack, Non-holo",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Play! Pokémon Prize Pack, Vertical Line Holo",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Professor Program",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "WC Deck 2022 (ADP: Ondřej Škubal)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "WC Deck 2022 (Ice Rider Palkia: Rikuto Ohashi)",
+        "quantity": 23,
+        "type": "other"
+      }
+    ],
+    "rarity": {
+      "symbol": "https://static.tcgcollector.com/content/images/39/26/4d/39264dba06e81707203520d206a7a2563f6560d21393399a76af9776e0848870.svg",
+      "name": "Rare Holo"
+    }
+  },
+  {
+    "id": 37207,
+    "url": "/cards/37207/ultra-ball-brilliant-stars-150-172",
+    "image": "https://static.tcgcollector.com/content/images/dc/60/d4/dc60d440ceaebc5d8520b3e7943442ea3fbd9864273abecafcad5259f321d9b3.jpg",
+    "name": "Ultra Ball",
+    "number": 150,
+    "set": {
+      "count": 172,
+      "symbol": "https://static.tcgcollector.com/content/images/bd/e7/28/bde7281c776b1372236703d0b8060d6b6f4e7f3c1d553c3a8bd7e9deeff27f52.webp",
+      "name": "Brilliant Stars"
+    },
+    "variants": [
+      { "name": "Normal", "quantity": 0, "type": "normal" },
+      { "name": "Reverse Holo", "quantity": 0, "type": "parallel" },
+      { "name": "Championships Europe", "quantity": 0, "type": "other" },
+      {
+        "name": "Championships Europe (Champion)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Europe (Staff)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Europe (Top 8)",
+        "quantity": 0,
+        "type": "other"
+      },
+      { "name": "Championships Hong Kong", "quantity": 0, "type": "other" },
+      {
+        "name": "Championships Hong Kong (Champion)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Hong Kong (Staff)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Hong Kong (Top 8)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Latin America",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Latin America (Champion)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Latin America (Staff)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Latin America (Top 8)",
+        "quantity": 0,
+        "type": "other"
+      },
+      { "name": "Championships Malaysia", "quantity": 0, "type": "other" },
+      {
+        "name": "Championships Malaysia (Champion)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Malaysia (Staff)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Malaysia (Top 8)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships North America",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships North America (Champion)",
+        "quantity": 2,
+        "type": "other"
+      },
+      {
+        "name": "Championships North America (Staff)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships North America (Top 8)",
+        "quantity": 0,
+        "type": "other"
+      },
+      { "name": "Championships Oceania", "quantity": 0, "type": "other" },
+      {
+        "name": "Championships Oceania (Champion)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Oceania (Staff)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Oceania (Top 8)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Philippines",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Philippines (Champion)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Philippines (Staff)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Philippines (Top 8)",
+        "quantity": 0,
+        "type": "other"
+      },
+      { "name": "Championships Singapore", "quantity": 0, "type": "other" },
+      {
+        "name": "Championships Singapore (Champion)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Singapore (Staff)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Championships Singapore (Top 8)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Play! Pokémon Prize Pack, Non-holo",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "Play! Pokémon Prize Pack, Vertical Line Holo",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "WC Deck 2022 (ADP: Ondřej Škubal)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "WC Deck 2022 (Cheryl Again: Sebastian Lashmet)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "WC Deck 2022 (Ice Rider Palkia: Rikuto Ohashi)",
+        "quantity": 0,
+        "type": "other"
+      },
+      {
+        "name": "WC Deck 2022 (The Shape of Mew: André Chiasson)",
+        "quantity": 0,
+        "type": "other"
+      }
+    ],
+    "rarity": {
+      "symbol": "https://static.tcgcollector.com/content/images/cf/b2/69/cfb26909969e41a2dbd881b877164cf87836dc1de4eb05d72883da3c65b2209f.svg",
+      "name": "Uncommon"
     }
   }
 ]

@@ -48,7 +48,7 @@
   <section
     id="card-image-grid"
     class={zenMode.active
-      ? "mx-auto grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(380px,480px))] justify-center"
+      ? "mx-auto grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(380px,480px))] justify-center pb-20"
       : ""}
   >
     {#each cards as card}
